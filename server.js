@@ -3,13 +3,17 @@ const dotenv = require('dotenv');
 const express = require('express');
 const sequelize = require('./config/database'); // Importation de la configuration Sequelize
 
+require('./models/Relations');
+
 // Charger les variables d'environnement
 dotenv.config();
 
 const app = express();
 
 // Start routes imports
-const productRoutes = require('./routes/productRoutes');
+const productRoutes = require('./routes/productR');
+const userRoutes = require('./routes/userR');
+const orderRoutes = require('./routes/orderR');
 // End routes import
 
 // Middleware
@@ -18,6 +22,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // Start routes use
 app.use('/api/products', productRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/orders', orderRoutes);
 // End routes use
 
 // Synchronisation avec la base de données

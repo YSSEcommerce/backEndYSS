@@ -11,24 +11,28 @@ const Cart = sequelize.define('Cart', {
 
   userId: {
     type: DataTypes.INTEGER,
-    allowNull: false
+    allowNull: false,
+    references: {
+      model: 'Users',
+      key: 'id'
+    },
+    onDelete: 'CASCADE'
   },
 
   productId: {
     type: DataTypes.INTEGER,
-    allowNull: false
+    allowNull: false,
+    references: {
+      model: 'Products',
+      key: 'id'
+    },
+    onDelete: 'CASCADE'
   },
 
   quantity: {
     type: DataTypes.INTEGER,
     allowNull: false
-  },
-
-  amount: {
-    type: DataTypes.FLOAT,
-    allowNull: false
   }
-
 }, {
   sequelize,
   modelName: 'Cart',

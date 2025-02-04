@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // configuration sequelize
+const sequelize = require('../config/database');
 
 const Payment = sequelize.define('Payment', {
   id: {
@@ -11,7 +11,12 @@ const Payment = sequelize.define('Payment', {
 
   orderId: {
     type: DataTypes.INTEGER,
-    allowNull: false
+    allowNull: false,
+    references: {
+      model: 'Orders',
+      key: 'id'
+    },
+    onDelete: 'CASCADE'
   }
 }, {
   sequelize,

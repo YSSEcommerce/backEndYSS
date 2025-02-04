@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // configuration sequelize
+const sequelize = require('../config/database');
 
 const Product = sequelize.define('Product', {
   id: {
@@ -24,7 +24,7 @@ const Product = sequelize.define('Product', {
     allowNull: false
   },
 
-  categroy: {
+  category: {  // Fixed typo
     type: DataTypes.STRING,
     allowNull: false
   },

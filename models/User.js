@@ -45,7 +45,7 @@ const User = sequelize.define('User', {
         user.password = await bcrypt.hash(user.password, 10);
       }
     }
-  }  
+  }
 });
 
 module.exports = User;

@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // configuration sequelize
+const sequelize = require('../config/database');
 
 const Subscription = sequelize.define('Subscription', {
     id: {
@@ -11,7 +11,12 @@ const Subscription = sequelize.define('Subscription', {
     
     userId: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+            model: 'Users',
+            key: 'id'
+        },
+        onDelete: 'CASCADE'
     },
 
     payStatus: {
