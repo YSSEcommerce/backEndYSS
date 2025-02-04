@@ -27,6 +27,16 @@ const Order = sequelize.define('Order', {
       key: 'id'
     },
     onDelete: 'CASCADE'
+  },
+  totalAmount: {
+    type: DataTypes.FLOAT,
+    allowNull: false
+  },
+  
+  status: {
+    type: DataTypes.ENUM('pending', 'shipped', 'delivered', 'canceled'),
+    allowNull: false,
+    defaultValue: 'pending'
   }
 }, {
   sequelize,

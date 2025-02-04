@@ -27,8 +27,8 @@ Order.belongsTo(Cart, { foreignKey: 'cartId', onDelete: 'CASCADE' });
 Cart.hasOne(Order, { foreignKey: 'cartId', onDelete: 'CASCADE' });
 
 // Cart and Products (Many-to-Many)
-Cart.hasMany(Product, { through: 'CartProducts', foreignKey: 'cartId' });
-Product.belongsToMany(Cart, { through: 'CartProducts', foreignKey: 'productId' });
+Cart.hasMany(Product, { foreignKey: 'cartId' });
+Product.belongsToMany(Cart, { foreignKey: 'productId' });
 
 // User and Courses (Many-to-Many) - Subscription-based access
 User.belongsToMany(Course, { through: 'UserCourses', foreignKey: 'userId' });
